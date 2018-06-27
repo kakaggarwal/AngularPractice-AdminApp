@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { PostsComponent } from './components/posts/posts.component';
@@ -9,6 +10,8 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { UsersComponent } from './components/users/users.component';
 import { LoginComponent } from './components/login/login.component';
 import { DetailsComponent } from './components/details/details.component';
+import { NavComponent } from './components/nav/nav.component';
+import { NotificationComponent } from './components/notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +21,14 @@ import { DetailsComponent } from './components/details/details.component';
     CategoriesComponent,
     UsersComponent,
     LoginComponent,
-    DetailsComponent
+    DetailsComponent,
+    NavComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
