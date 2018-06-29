@@ -9,20 +9,26 @@ import { Post } from '../../models/post.model';
 })
 export class HomeComponent implements OnInit {
 
+  latestPosts: Post[];
+
   constructor(private postService: PostsService) {
-    console.log("Dashboard Constructor called!!!");
   }
 
   ngOnInit() {
-    console.log("Dashboard ngOnInit called!!!");
-
     this.getLatestPosts();
   }
 
-  latestPosts: Post[];
-
   getLatestPosts(): void {
-    this.postService.getLatestPosts().subscribe(posts => this.latestPosts = posts);
+    this.postService.getLatestPosts().subscribe(
+      (posts) => {
+        this.latestPosts = posts.filter(f => f.title.length < 20);
+        this.latestPosts.forEach(
+          (item) => {
+            item.category = item.id % 5 === 1 ? 'Web App Development' : item.id % 5 === 2 ? 'Mobile App Development' : item.id % 5 === 3 ? 'UI/UX Design' : item.id % 5 === 4 ? 'Project Management' : 'Desktop Software Development';
+            item.postedDate = new Date()
+          }
+        );
+      }
+    );
   }
-
 }

@@ -13,6 +13,9 @@ import { DetailsComponent } from './components/details/details.component';
 import { NavComponent } from './components/nav/nav.component';
 import { NotificationComponent } from './components/notification/notification.component';
 
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +31,10 @@ import { NotificationComponent } from './components/notification/notification.co
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]

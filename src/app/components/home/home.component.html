@@ -45,67 +45,24 @@
                     <table class="table table-striped">
                         <thead class="thead-dark">
                             <tr>
-                                <th>#</th>
-                                <th>Title</th>
-                                <th>Category</th>
-                                <th>Date Posted</th>
-                                <th></th>
+                                <th scope="col">#</th>
+                                <th scope="col" width="15%">Title</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Date Posted</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td scope="row">1</td>
-                                <td>Post One</td>
-                                <td>Web Development</td>
-                                <td>July 12, 2018</td>
-                                <td><a routerLink="/details" class="btn btn-secondary">
+                            <tr *ngFor="let item of latestPosts">
+                                <td scope="row">{{ item.id }}</td>
+                                <td style="text-overflow:ellipsis">{{ item.title }}</td>
+                                <td>{{ 'Web Development'}}</td>
+                                <td>{{ item.postedDate | date: 'mediumDate' }}</td>
+                                <td>
+                                  <a routerLink="/details" class="btn btn-secondary">
                                     <i class="fa fa-angle-double-right"></i> Details
-                                </a></td>
-                            </tr>
-                            <tr>
-                                <td scope="row">2</td>
-                                <td>Post Two</td>
-                                <td>Tech Gadgets</td>
-                                <td>July 13, 2018</td>
-                                <td><a routerLink="/details" class="btn btn-secondary">
-                                    <i class="fa fa-angle-double-right"></i> Details
-                                </a></td>
-                            </tr>
-                            <tr>
-                                <td scope="row">3</td>
-                                <td>Post Three</td>
-                                <td>Web Development</td>
-                                <td>July 14, 2018</td>
-                                <td><a routerLink="/details" class="btn btn-secondary">
-                                    <i class="fa fa-angle-double-right"></i> Details
-                                </a></td>
-                            </tr>
-                            <tr>
-                                <td scope="row">4</td>
-                                <td>Post Four</td>
-                                <td>Business</td>
-                                <td>July 15, 2018</td>
-                                <td><a routerLink="/details" class="btn btn-secondary">
-                                    <i class="fa fa-angle-double-right"></i> Details
-                                </a></td>
-                            </tr>
-                            <tr>
-                                <td scope="row">5</td>
-                                <td>Post Five</td>
-                                <td>Web Development</td>
-                                <td>July 16, 2018</td>
-                                <td><a routerLink="/details" class="btn btn-secondary">
-                                    <i class="fa fa-angle-double-right"></i> Details
-                                </a></td>
-                            </tr>
-                            <tr>
-                                <td scope="row">6</td>
-                                <td>Post Six</td>
-                                <td>Health & Wellness</td>
-                                <td>July 17, 2018</td>
-                                <td><a routerLink="/details" class="btn btn-secondary">
-                                    <i class="fa fa-angle-double-right"></i> Details
-                                </a></td>
+                                  </a>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

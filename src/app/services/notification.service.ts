@@ -6,4 +6,15 @@ import { Injectable } from '@angular/core';
 export class NotificationService {
 
   constructor() { }
+
+  notifications: string[] = [];
+
+  add(notification: string) {
+    this.notifications.push(notification);
+  }
+
+  clear() {
+    this.notifications = [];
+  }
+
 }
