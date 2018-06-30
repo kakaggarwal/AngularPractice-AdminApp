@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostsService } from '../../services/posts.service';
 import { Post } from '../../models/post.model';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -9,26 +10,34 @@ import { Post } from '../../models/post.model';
 })
 export class HomeComponent implements OnInit {
 
-  latestPosts: Post[];
+  private iniDate: Date = new Date();
+  private index: number = 0;
 
-  constructor(private postService: PostsService) {
+  latestPosts: Post[] = [];
+  totalPosts: number = 0;
+  totalUsers: number = 0;
+
+  constructor(private postService: PostsService, private userService: UserService) {
   }
 
   ngOnInit() {
     this.getLatestPosts();
+    this.getPostsCount();
+    this.getUsersCount();
   }
 
   getLatestPosts(): void {
-    this.postService.getLatestPosts().subscribe(
+    this.postService.getPosts().subscribe(
       (posts) => {
-        this.latestPosts = posts.filter(f => f.title.length < 20);
-        this.latestPosts.forEach(
-          (item) => {
-            item.category = item.id % 5 === 1 ? 'Web App Development' : item.id % 5 === 2 ? 'Mobile App Development' : item.id % 5 === 3 ? 'UI/UX Design' : item.id % 5 === 4 ? 'Project Management' : 'Desktop Software Development';
-            item.postedDate = new Date()
-          }
-        );
-      }
-    );
+        this.latestPosts = posts.reverse().slice(0, 7)
+      })
+  }
+
+  getPostsCount(): void {
+    this.postService.getPosts().subscribe(posts => this.totalPosts = posts.length);
+  }
+
+  getUsersCount(): void {
+    this.userService.getUsers().subscribe(users => this.totalUsers = users.length);
   }
 }

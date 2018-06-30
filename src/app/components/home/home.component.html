@@ -18,11 +18,11 @@
                     <i class="fa fa-plus"></i> Add Post
                 </a>
             </div>
-            <div class="col-md-3">
+            <!--<div class="col-md-3">
                 <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#addCategoryModal">
                     <i class="fa fa-plus"></i> Add Category
                 </a>
-            </div>
+            </div>-->
             <div class="col-md-3">
                 <a href="#" class="btn btn-warning btn-block" data-toggle="modal" data-target="#addUserModal">
                     <i class="fa fa-plus"></i> Add User
@@ -46,23 +46,23 @@
                         <thead class="thead-dark">
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col" width="15%">Title</th>
-                                <th scope="col">Category</th>
-                                <th scope="col">Date Posted</th>
+                                <th scope="col">Title</th>
+                                <!--<th scope="col">Category</th>-->
+                                <!--<th scope="col">Date Posted</th>-->
                                 <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let item of latestPosts">
-                                <td scope="row">{{ item.id }}</td>
-                                <td style="text-overflow:ellipsis">{{ item.title }}</td>
-                                <td>{{ 'Web Development'}}</td>
-                                <td>{{ item.postedDate | date: 'mediumDate' }}</td>
-                                <td>
-                                  <a routerLink="/details" class="btn btn-secondary">
-                                    <i class="fa fa-angle-double-right"></i> Details
-                                  </a>
-                                </td>
+                            <tr *ngFor="let post of latestPosts">
+                              <td scope="row">{{ post.id }}</td>
+                              <td>{{ post.title }}</td>
+                              <!--<td>{{ post.category.name }}</td>-->
+                              <!--<td>{{ post.postedDate | date: 'mediumDate' }}</td>-->
+                              <td>
+                                <a routerLink="/details/{{ post.id }}" class="btn btn-secondary">
+                                  <i class="fa fa-angle-double-right"></i> Details
+                                </a>
+                              </td>
                             </tr>
                         </tbody>
                     </table>
@@ -73,25 +73,25 @@
                     <div class="card-body">
                         <h3>Posts</h3>
                         <h1 class="display-4">
-                            <i class="fa fa-pencil"></i> 6
+                          <i class="fa fa-pencil"></i> {{ totalPosts }}
                         </h1>
                         <a routerLink="/posts" class="btn btn-outline-light btn-sm">View</a>
                     </div>
                 </div>
-                <div class="card text-center bg-success text-white mb-3">
+                <!--<div class="card text-center bg-success text-white mb-3">
                     <div class="card-body">
                         <h3>Categories</h3>
                         <h1 class="display-4">
-                            <i class="fa fa-folder-open-o"></i> 4
+                          <i class="fa fa-folder-open-o"></i> {{ totalCategories }}
                         </h1>
                         <a routerLink="/categories" class="btn btn-outline-light btn-sm">View</a>
                     </div>
-                </div>
+                </div>-->
                 <div class="card text-center bg-warning text-white mb-3">
                     <div class="card-body">
                         <h3>Users</h3>
                         <h1 class="display-4">
-                            <i class="fa fa-users"></i> 2
+                          <i class="fa fa-users"></i> {{ totalUsers }}
                         </h1>
                         <a routerLink="/users" class="btn btn-outline-light btn-sm">View</a>
                     </div>
