@@ -1,16 +1,20 @@
 export class User {
-  constructor() { }
-
   id: number;
   name: string;
-  username: string;
   email: string;
+  username: string;
   address: Address;
   phone: string;
   website: string;
   company: CompanyInfo;
   createdDate: Date;
   updatedDate: Date;
+
+  constructor(id: number, name: string, email: string) {
+    this.id = id;
+    this.name = name;
+    this.email = email;
+  }
 }
 
 class Address {
