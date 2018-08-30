@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
+import { catchError, tap, map } from 'rxjs/internal/operators';
 
 import { Post } from '../models/post.model';
 import { NotificationService } from './notification.service';
@@ -22,7 +23,7 @@ export class PostsService {
   private notify(message: string, type: string) {
     this.notificationService.add(message, type);
   }
-
+  
   getPosts(): Observable<Post[]> {
     return this.http.get<Post[]>('http://jsonplaceholder.typicode.com/posts');
   }

@@ -1,8 +1,8 @@
 <header id="main-header" class="py-2 text-white bg-primary">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <h1> Post One</h1>
+            <div class="col-md-12">
+                <h1>{{ post.title }}</h1>
             </div>
         </div>
     </div>
@@ -13,18 +13,18 @@
 <section id="actions" class="py-4 mb-4 bg-light">
     <div class="container">
         <div class="row">
-            <div class="col-md-3 mr-auto">
+            <div class="col-md-3 mr-auto mb-2 mb-md-0">
                 <a routerLink="/" class="btn btn-light btn-block">
                     <i class="fa fa-arrow-left"></i> Back To Dashboard
                 </a>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3 mb-md-0">
                 <a class="btn btn-success btn-block" (click)="savePost()">
                     <i class="fa fa-check"></i> Save Changes
                 </a>
             </div>
-            <div class="col-md-3">
-                <a href="#" class="btn btn-danger btn-block">
+            <div class="col-md-3 mb-1 mb-md-0">
+                <a class="btn btn-danger btn-block" (click)="deletePost()">
                     <i class="fa fa-remove"></i> Delete Post
                 </a>
             </div>

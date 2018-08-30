@@ -6,14 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class NavComponent implements OnInit {
+  selectedRoute: string;
 
   constructor() { }
 
   ngOnInit() {
-    this.selectedRoute = "/";
+    this.selectedRoute = '/';
   }
-
-  selectedRoute: string;
 
   onRouteSelect(route: string): void {
     this.selectedRoute = route;

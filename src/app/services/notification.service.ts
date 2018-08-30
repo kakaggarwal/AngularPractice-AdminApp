@@ -7,10 +7,10 @@ export class NotificationService {
 
   constructor() { }
 
-  notifications: string[] = [];
+  notifications = [];
 
-  add(notification: string) {
-    this.notifications.push(notification);
+  add(notification: string, type: string) {
+    this.notifications.push({ notification, type });
   }
 
   clear() {

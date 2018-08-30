@@ -8,12 +8,12 @@ import { LoginComponent } from './components/login/login.component';
 import { DetailsComponent } from './components/details/details.component';
 
 const routes: Routes = [
-  { path:'', component: HomeComponent, pathMatch: 'full' },
-  { path:'posts', component: PostsComponent },
-  { path:'categories', component: CategoriesComponent },
-  { path:'users', component: UsersComponent },
-  { path:'login', component: LoginComponent },
-  { path:'details', component: DetailsComponent }
+  { path: '', component: HomeComponent, pathMatch: 'full' },
+  { path: 'posts', component: PostsComponent },
+  { path: 'categories', component: CategoriesComponent },
+  { path: 'users', component: UsersComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'details/:id', component: DetailsComponent }
 ];
 
 @NgModule({
