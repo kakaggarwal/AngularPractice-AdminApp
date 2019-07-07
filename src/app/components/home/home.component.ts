@@ -67,7 +67,7 @@ export class HomeComponent implements OnInit {
     this.modalService.open(content, { ariaLabelledBy: 'addPostModal-Header' }).result.then((result) => {
       this.modalCloseResult = `Closed with ${result}`;
     }, (reason) => {
-      this.modalCloseResult = `Dismissed ${this.}`
+      this.modalCloseResult = `Dismissed`
     });
   }
 
