@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "AdminApp:build"
+            "buildTarget": "AdminApp:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "AdminApp:build:production"
+              "buildTarget": "AdminApp:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "AdminApp:build"
+            "buildTarget": "AdminApp:build"
           }
         },
         "test": {
