@@ -3,9 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { NotificationService } from '../../services/notification.service';
 
 @Component({
-  selector: 'app-notification',
-  templateUrl: 'notification.component.html',
-  styles: []
+    selector: 'app-notification',
+    templateUrl: 'notification.component.html',
+    styles: [],
+    standalone: false
 })
 export class NotificationComponent implements OnInit {
 

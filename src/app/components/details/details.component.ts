@@ -6,9 +6,10 @@ import { Location } from '@angular/common';
 import swal from 'sweetalert';
 
 @Component({
-  selector: 'app-details',
-  templateUrl: 'details.component.html',
-  styles: []
+    selector: 'app-details',
+    templateUrl: 'details.component.html',
+    styles: [],
+    standalone: false
 })
 export class DetailsComponent implements OnInit {
   post: Post = new Post();
