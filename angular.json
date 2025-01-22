@@ -16,12 +16,16 @@
       },
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/AdminApp",
+            "aot": true,
+            "outputPath": {
+              "base": "dist/AdminApp"
+            },
             "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": [
+              "src/polyfills.ts"
+            ],
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
@@ -30,10 +34,17 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [ ]
+            "scripts": [],
+            "browser": "src/main.ts"
           },
           "configurations": {
             "production": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -46,27 +57,25 @@
               "extractCss": true,
               "namedChunks": false,
               "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true
+              "extractLicenses": true
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "AdminApp:build"
+            "buildTarget": "AdminApp:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "AdminApp:build:production"
+              "buildTarget": "AdminApp:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "AdminApp:build"
+            "buildTarget": "AdminApp:build"
           }
         },
         "test": {
@@ -127,6 +136,5 @@
         }
       }
     }
-  },
-  "defaultProject": "AdminApp"
+  }
 }

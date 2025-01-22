@@ -6,9 +6,10 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap/modal/modal';
 import { ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap/modal/modal-dismiss-reasons';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.component.html',
-  styles: []
+    selector: 'app-home',
+    templateUrl: 'home.component.html',
+    styles: [],
+    standalone: false
 })
 export class HomeComponent implements OnInit {
 
